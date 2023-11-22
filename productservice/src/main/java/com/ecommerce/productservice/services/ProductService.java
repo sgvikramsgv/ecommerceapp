@@ -1,11 +1,15 @@
 package com.ecommerce.productservice.services;
 
-public interface ProductService {
-    public String getProductById(long id);
+import com.ecommerce.productservice.dtos.GenericProductDto;
 
-    public void getAllProducts();
+import java.util.List;
+
+public interface ProductService {
+    public GenericProductDto getProductById(long id);
+
+    public List<GenericProductDto> getAllProducts();
     public void deleteProductById();
-    public void createProduct();
+    public GenericProductDto createProduct(GenericProductDto genericProductDto);
     public void updateProductById();
 
 }

@@ -1,9 +1,12 @@
 package com.ecommerce.productservice.controllers;
 
+import com.ecommerce.productservice.dtos.GenericProductDto;
 import com.ecommerce.productservice.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/products")
@@ -15,27 +18,29 @@ public class ProductController {
 
     @Autowired
     //Constructor Injection
-    ProductController(@Qualifier("SelfProductServiceImpl") ProductService productService){
+    ProductController(@Qualifier("FakeStoreProductServiceImpl") ProductService productService){
         this.productService = productService;
     }
 
     //localhost:8080/products/123
     @GetMapping("/{id}")
-    public String getProductById(@PathVariable("id") long id){
-//        return "Scaler || Product fetched with ID: " + id;
+    public GenericProductDto getProductById(@PathVariable("id") long id){
+        //return "Scaler || Product fetched with ID: " + id;
+        //RetTemplate
+
         return productService.getProductById(id);
     }
     @GetMapping
-    public void getAllProducts(){
-
+    public List<GenericProductDto> getAllProducts(){
+        return productService.getAllProducts();
     }
     @DeleteMapping("/{id}")
     public void deleteProductById(@PathVariable("id") long id){
 
     }
-    @PostMapping("/")
-    public void createProduct(){
-
+    @PostMapping()
+    public GenericProductDto createProduct(@RequestBody GenericProductDto genericProductDto){
+        return productService.createProduct(genericProductDto);
     }
 
     @PutMapping("/{id}")
