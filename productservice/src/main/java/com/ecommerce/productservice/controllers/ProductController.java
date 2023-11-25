@@ -12,8 +12,6 @@ import java.util.List;
 @RequestMapping("/products")
 public class ProductController {
 
-
-
     private ProductService productService;
 
     @Autowired
@@ -35,17 +33,17 @@ public class ProductController {
         return productService.getAllProducts();
     }
     @DeleteMapping("/{id}")
-    public void deleteProductById(@PathVariable("id") long id){
-
+    public GenericProductDto deleteProductById(@PathVariable("id") long id){
+        return productService.deleteProductById(id);
     }
     @PostMapping()
     public GenericProductDto createProduct(@RequestBody GenericProductDto genericProductDto){
         return productService.createProduct(genericProductDto);
     }
 
-    @PutMapping("/{id}")
+    @PatchMapping("/{id}")
     public void updateProductById(@PathVariable("id") long id){
-
+        //home work
     }
 
 }
