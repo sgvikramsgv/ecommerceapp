@@ -1,22 +1,18 @@
 package com.ecommerce.productservice.models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.GenericGenerators;
-import org.springframework.data.annotation.Id;
+
+import java.util.UUID;
 
 @Getter
 @Setter
 @MappedSuperclass
 public class BaseModel {
     @Id
-    @GeneratedValue(generator = "uuidgenerator")
-    @GenericGenerator(name = "uuidgenerator")
-    @Column(name = "id", columnDefinition = "binary(16)", nullable = false, updatable = false)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
 
 }
