@@ -156,12 +156,12 @@ public class ProductserviceApplication implements CommandLineRunner {
 //
 //        Category category1 = new Category("iPhone Devices");
 //        Category category2 = new Category("Samsung Devices");
-//        Category savedCategory1 = categoryRepository.save(category);
+//        Category savedCategory1 = categoryRepository.save(category1);
 //        Category savedCategory2 = categoryRepository.save(category2);
 //
-//        Product product1 = new Product("Iphone 15", "Best Phone", "IMG1", savedCategory, p1);
-//        Product product2 = new Product("Iphone 15 Pro", "Best Phone", "IMG1", savedCategory, p2);
-//        Product product3 = new Product("Iphone 15 Pro Max", "Best Phone", "IMG1", savedCategory, p3);
+//        Product product1 = new Product("Iphone 15", "Best Phone", "IMG1", savedCategory1, p1);
+//        Product product2 = new Product("Iphone 15 Pro", "Best Phone", "IMG1", savedCategory1, p2);
+//        Product product3 = new Product("Iphone 15 Pro Max", "Best Phone", "IMG1", savedCategory1, p3);
 //        Product product4 = new Product("Samsung Fold", "Foldable Phone", "IMG1", savedCategory2, p4);
 //
 //        Product savedProduct1 = productRepository.save(product1);
@@ -191,8 +191,8 @@ public class ProductserviceApplication implements CommandLineRunner {
 
 
         //with Transactional the load - @Transactional is defined for this whole method and Category still LAZY
-        Optional<Category> category1 = categoryRepository.findById(UUID.fromString("9c59a41b-174e-4682-b27a-afcadad48cca"));
-        Category category = category1.get();
+        Optional<Category> category3 = categoryRepository.findById(UUID.fromString("f0d5a7dc-1d3d-41b0-9227-4f3d380e690d"));
+        Category category = category3.get();
 
         List<Product> products = category.getProducts();
         for(Product product: products){

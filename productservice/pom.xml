@@ -47,6 +47,16 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.flywaydb/flyway-mysql -->
+        <!-- https://mvnrepository.com/artifact/org.flywaydb/flyway-mysql -->
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-mysql</artifactId>
+            <version>8.5.13</version>
+        </dependency>
+
+
+
     </dependencies>
 
     <build>

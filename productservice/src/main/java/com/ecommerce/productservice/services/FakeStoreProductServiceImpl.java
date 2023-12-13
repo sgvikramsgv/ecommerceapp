@@ -3,11 +3,13 @@ package com.ecommerce.productservice.services;
 import com.ecommerce.productservice.dtos.FakeStoreProductDto;
 import com.ecommerce.productservice.dtos.GenericProductDto;
 import com.ecommerce.productservice.thirdpartyclients.fakestoreclient.FakeStoreClientAdapter;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Primary
 @Service("FakeStoreProductServiceImpl")
 public class FakeStoreProductServiceImpl implements ProductService{
 
